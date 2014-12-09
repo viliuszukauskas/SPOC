@@ -6,13 +6,11 @@ namespace WebApplication1.OurContent.Parser
 {
     public class PageObjectsParser
     {
-        private SpocXmlReader _spocXmlReader;
+        private SpocXmlReader _spocXmlReader = new SpocXmlReader();
 
         public List<PageObjectsModel> CollectElementInPage(string pathToFile)
         {
-            _spocXmlReader = new SpocXmlReader(pathToFile);
-
-            var node = _spocXmlReader.GetReaderInfo();
+            var node = _spocXmlReader.GetReaderInfo(pathToFile);
 
             var modelList = new List<PageObjectsModel>();
 
@@ -21,7 +19,7 @@ namespace WebApplication1.OurContent.Parser
                 var model = new PageObjectsModel();
                 bool isAtribute = false;
 
-                var atribute = node[i].Atributes.Find(x=>x.Key.Equals("data-sel-id"));
+                var atribute = node[i].Atributes.Find(x => x.Key.Equals("data-sel-id"));
                 if (atribute != null)
                 {
                     model.TagName = node[i].Name;
@@ -40,6 +38,7 @@ namespace WebApplication1.OurContent.Parser
                     model.TagName = node[i].Name;
                     model.Id = node[i].Atributes.Find(x => x.Key.Equals("id")).Value;
                     model.How = SelectorType.Id;
+                    model.Atributes = node[i].Atributes;
 
                     if (node[i].Atributes.Find(x => x.Key.Equals("type")) != null)
                     {

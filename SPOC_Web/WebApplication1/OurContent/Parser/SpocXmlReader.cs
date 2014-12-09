@@ -2,73 +2,59 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using WebApplication1.OurContent.Models;
 
 namespace WebApplication1.OurContent.Parser
 {
     public class SpocXmlReader
     {
-        private string _text;
-        public SpocXmlReader(string pathToFile)
-        {
-            _text = File.ReadAllText(pathToFile);
-        }
-
-        public List<XmlReaderModel> GetReaderInfo()
+        public List<XmlReaderModel> GetReaderInfo(string pathToFile)
         {
             var modelList = new List<XmlReaderModel>();
+            var readText = ReadFromText(pathToFile);
 
-            var list = ReadFromText();
-            list.Remove(string.Empty);
-
-            foreach (var lst in list)
+            foreach (var txt in readText)
             {
-                var data = new XmlReaderModel
+                if (txt.Contains(" id="))
                 {
-                    Atributes = new List<AttributesModel>(),
-                };
+                    var splitedText = txt.Split(Convert.ToChar(" "));
 
-                var temp = lst.Split(Convert.ToChar(" "));
-                data.Name = temp[0];
-
-                for (int i = 1; i < temp.Length; i++)
-                {
-                    var atrTemp = temp[i].Split(Convert.ToChar("="));
-                    if (atrTemp.Length == 2)
+                    var data = new XmlReaderModel
                     {
-                        var atr = new AttributesModel()
+                        Atributes = new List<AttributesModel>(),
+                    };
+
+                    data.Name = splitedText[0];
+
+                    for (int i = 1; i < splitedText.Length; i++)
+                    {
+                        var atrTemp = splitedText[i].Split(Convert.ToChar("="));
+                        if (atrTemp.Length == 2)
                         {
-                            Key = ReplaceCharacters(atrTemp[0]),
-                            Value = ReplaceCharacters(atrTemp[1]),
-                        };
-                        data.Atributes.Add(atr);
+                            var atr = new AttributesModel()
+                            {
+                                Key = ReplaceCharacters(atrTemp[0]),
+                                Value = ReplaceCharacters(atrTemp[1]),
+                            };
+                            data.Atributes.Add(atr);
+                        }
                     }
-                }
-                modelList.Add(data);
-            }
-
-            for (int i = 0; i < modelList.Count; i++)
-            {
-                if (modelList[i].Atributes.Count == 0)
-                {
-                    modelList.Remove(modelList[i]);
-                    i = i - 1;
+                    modelList.Add(data);
                 }
             }
-
             return modelList;
         }
 
-        private List<string> ReadFromText()
+        private List<string> ReadFromText(string pathToFile)
         {
-            var temp = _text.Split(Convert.ToChar("<"));
-
+            var temp = File.ReadAllText(pathToFile).Split(Convert.ToChar("<")).ToList();
             return (from s in temp where !s.StartsWith("/") && s.StartsWith("") select s.Split(Convert.ToChar(">"))[0]).ToList();
         }
 
-        private string ReplaceCharacters(string character)
+        private string ReplaceCharacters(string text)
         {
-            return character.Replace("\\", "").Replace("\"", "");
+            return text.Replace("\\", "").Replace("\"", "");
         }
     }
 }
