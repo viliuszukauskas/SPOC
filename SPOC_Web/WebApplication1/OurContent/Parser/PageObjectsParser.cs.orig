@@ -25,8 +25,13 @@ namespace WebApplication1.OurContent.Parser
                 if (atribute != null)
                 {
                     model.TagName = node[i].Name;
-                    model.Id = node[i].Atributes.Find(x => x.Key.Equals("data-sel-id")).Value;
+<<<<<<< HEAD
+                    model.Id = atribute["data-sel-id"].Value;
                     model.How = SelectorType.CssSelector;
+=======
+                    model.Id = node[i].Atributes.Find(x => x.Key.Equals("data-sel-id")).Value;
+                    model.How = SelectorType.Css;
+>>>>>>> Added Parser
 
                     if (node[i].Atributes.Find(x => x.Key.Equals("type")) != null)
                     {

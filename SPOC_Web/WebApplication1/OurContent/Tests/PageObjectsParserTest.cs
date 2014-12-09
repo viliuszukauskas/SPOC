@@ -13,11 +13,12 @@ namespace WebApplication1.OurContent.Tests
     {
         public PageObjectsParser Parser = new PageObjectsParser();
         public Generator Generator = new Generator();
+        public SpocXmlReader xml;
 
         [Test]
         public void TestParser()
         {
-            var pathToFile = Path.GetFullPath(@"Tests/TestData.xml");
+            var pathToFile = Path.GetFullPath(@"OurContent/Tests/TestData.txt");
             Parser.CollectElementInPage(pathToFile);
         }
 
