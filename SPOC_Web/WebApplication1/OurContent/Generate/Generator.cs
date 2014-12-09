@@ -24,10 +24,19 @@ namespace WebApplication1.OurContent.Generate
 
         public void GeneratePageObjectFile(List<PageObjectsModel> elements)
         {
+            GenerateFileHeader();
+
+            GenerateFileBody(elements);
+
+            GenerateFileFooter();
+        }
+
+        public void GenerateFileBody(List<PageObjectsModel> elements)
+        {
             
         }
 
-        public String GenerateElementInitialization(string name, string how)
+    public String GenerateElementInitialization(string name, string how)
         {
             var element = new StringBuilder();
             element.AppendLine()
