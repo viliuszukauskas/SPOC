@@ -25,9 +25,9 @@ namespace WebApplication1.OurContent.Tests
         public void TestGenerator()
         {
             var list = new List<PageObjectsModel>();
-            var a = new PageObjectsModel {How = SelectorType.Css, Id = "abc", Type = "text", TagName = "input"};
+            var a = new PageObjectsModel {How = SelectorType.CssSelector, Id = "abc", Type = "text", TagName = "input"};
             list.Add(a);
-            a = new PageObjectsModel { How = SelectorType.Id, Id = "cba", Type = "text", TagName = "input" };
+            a = new PageObjectsModel { How = SelectorType.Id, Id = "cba", Type = "checkbox", TagName = "input" };
             list.Add(a);
 
             Generator.GeneratePageObjectFile(list);

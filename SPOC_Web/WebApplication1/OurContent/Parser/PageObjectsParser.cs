@@ -26,7 +26,7 @@ namespace WebApplication1.OurContent.Parser
                 {
                     model.TagName = node[i].Name;
                     model.Id = atribute["data-sel-id"].Value;
-                    model.How = SelectorType.Css;
+                    model.How = SelectorType.CssSelector;
 
                     if (atribute["type"] != null)
                     {

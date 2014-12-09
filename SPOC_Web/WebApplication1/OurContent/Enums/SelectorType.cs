@@ -2,7 +2,7 @@
 {
     public enum SelectorType
     {
-        Css,
+        CssSelector,
         Id
     }
 }
