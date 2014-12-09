@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title ng-bind="models.title"></title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+    <div data-ng-app="SpocApp" data-ng-controller="SpocCtrl" class="container mainContent">
+        <form ng-hide="isGenerated" data-ng-submit="generate(SpocModel.$valid)">
+            <div class="form-group">
+                <label for="sourceCode">SourceCode:</label>
+                <textarea data-ng-model="SpocModel.srcCode" class="form-control" rows="10" id="sourceCode" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="className">Name:</label>
+                <input data-ng-model="SpocModel.className" type="text" class="form-control" id="className" required/>
+            </div>
+            <button type="submit" class="btn btn-default">Generate</button>
+        </form>
+
+        <div ng-show="isGenerated">
+            <label for="generatedCode">Generated Code:</label>
+            <textarea class="form-control" rows="20" id="generatedCode">{{generatedCode}}</textarea><br />
+            <button data-ng-click="reset()" class="btn btn-default">Reset</button>
+        </div>
+    </div>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+    <script src="~/ScriptsApp/Spoc.js"></script>
+</body>
+</html>
