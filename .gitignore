@@ -9,6 +9,11 @@ SPOC_Web/WebApplication1/bin/WebApplication1.dll
 SPOC_Web/SPOC_Web.sln.DotSettings.user
 SPOC_Web/WebApplication1/obj/Debug/WebApplication1.csprojResolveAssemblyReference.cache
 SPOC_Web/WebApplication1/obj/Debug/WebApplication1.csproj.FileListAbsolute.txt
+SPOC_Web/WebApplication1/obj/
+SPOC_Web/SpocWeb/obj/*
+SPOC_Web/SpocWeb/bin/*
+SPOC_Web/SpocTest/obj/*
+SPOC_Web/SpocTest/bin/*
 
 #ignore thumbnails created by windows
 Thumbs.db
@@ -38,3 +43,20 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+
+# Build results
+
+[Dd]ebug/
+[Rr]elease/
+x64/
+build/
+[Bb]in/
+[Oo]bj/
+Builds/Packages/
+Builds/VismaSchool.Build.Files.wxs
+*.dll

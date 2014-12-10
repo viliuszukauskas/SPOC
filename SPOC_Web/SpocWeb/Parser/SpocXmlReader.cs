@@ -16,7 +16,7 @@ namespace SpocWeb.Parser
 
             foreach (var txt in readText)
             {
-                if (txt.Contains(" id="))
+                if (txt.Contains("id="))
                 {
                     var splitedText = txt.Split(Convert.ToChar(" "));
 

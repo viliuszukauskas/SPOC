@@ -34,9 +34,7 @@ namespace SpocWeb.Parser
                         model.Type = string.Empty;
                     }
                     isAtribute = true;
-                }
-                atribute = node[i].Atributes.Find(x => x.Key.Equals("id"));
-                if (atribute != null)
+                }else if (node[i].Atributes.Find(x => x.Key.Equals("id")) != null)
                 {
                     model.TagName = node[i].Name;
                     model.Id = node[i].Atributes.Find(x => x.Key.Equals("id")).Value;
