@@ -1,11 +1,10 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.IO;
-using WebApplication1.OurContent.Parser;
-using WebApplication1.OurContent.Generate;
+using SpocWeb.Enums;
+using SpocWeb.Generate;
+using SpocWeb.Models;
+using SpocWeb.Parser;
 using System.Collections.Generic;
-using WebApplication1.OurContent.Models;
-using WebApplication1.OurContent.Enums;
 
 namespace SpocTests
 {

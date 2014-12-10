@@ -54,16 +54,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\WebApplication1\SpocProject.csproj">
-      <Project>{81ec4cb1-c8ca-4f24-983c-a54f4c76881e}</Project>
-      <Name>SpocProject</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Data\TestData.txt">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SpocWeb\SpocWeb.csproj">
+      <Project>{64a506a7-096b-4252-976e-bc997892e1bc}</Project>
+      <Name>SpocWeb</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
