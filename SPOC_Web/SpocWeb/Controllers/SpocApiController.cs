@@ -1,9 +1,4 @@
 ﻿using SpocWeb.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using SpocWeb.Generate;
 using SpocWeb.Parser;
@@ -21,14 +16,11 @@ namespace SpocWeb.Controllers
         // POST: api/SpocApi
         public SpocModel Post(SpocModel spocModel)
         {
-            List<PageObjectsModel> objectsModel = new List<PageObjectsModel>();
+            var generator = new Generator();
+            var parser = new PageObjectsParser();
 
-            Generator gen = new Generator();
-
-            PageObjectsParser parser = new PageObjectsParser();
-
-            objectsModel = parser.CollectElementInPage(spocModel.srcCode);
-            spocModel.generatedCode = gen.GeneratePageObjectFile(objectsModel);
+            var objectsModel = parser.CollectElementInPage(spocModel.srcCode);
+            spocModel.generatedCode = generator.GeneratePageObjectFile(objectsModel);
 
             return spocModel;
         }
