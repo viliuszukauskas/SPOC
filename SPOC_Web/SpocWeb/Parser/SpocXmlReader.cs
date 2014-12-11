@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using SpocWeb.Models;
 
 namespace SpocWeb.Parser
@@ -21,15 +23,16 @@ namespace SpocWeb.Parser
                     var data = new XmlReaderModel
                     {
                         Atributes = new List<AttributesModel>(),
-                        Name = splitedText[0],
                     };
+
+                    data.Name = splitedText[0];
 
                     for (int i = 1; i < splitedText.Length; i++)
                     {
                         var atrTemp = splitedText[i].Split(Convert.ToChar("="));
                         if (atrTemp.Length == 2)
                         {
-                            var atr = new AttributesModel
+                            var atr = new AttributesModel()
                             {
                                 Key = ReplaceCharacters(atrTemp[0]),
                                 Value = ReplaceCharacters(atrTemp[1]),
@@ -43,7 +46,7 @@ namespace SpocWeb.Parser
             return modelList;
         }
 
-        private IEnumerable<string> ReadFromText(string console)
+        private List<string> ReadFromText(string console)
         {
             var temp = console.Split(Convert.ToChar("<")).ToList();
             return (from s in temp where !s.StartsWith("/") && s.StartsWith("") select s.Split(Convert.ToChar(">"))[0]).ToList();

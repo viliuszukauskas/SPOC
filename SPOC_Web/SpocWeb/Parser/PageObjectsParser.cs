@@ -6,7 +6,7 @@ namespace SpocWeb.Parser
 {
     public class PageObjectsParser
     {
-        private readonly SpocXmlReader _spocXmlReader = new SpocXmlReader();
+        private SpocXmlReader _spocXmlReader = new SpocXmlReader();
 
         public List<PageObjectsModel> CollectElementInPage(string console)
         {
