@@ -11,4 +11,10 @@ namespace SpocWeb.Models
         public string TagName { get; set; }
         public List<AttributesModel> Atributes { get; set; }
     }
+
+    public class AttributesModel
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+    }
 }

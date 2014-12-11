@@ -13,19 +13,20 @@
                 <textarea data-ng-model="SpocModel.srcCode" class="form-control" rows="10" id="sourceCode" required></textarea>
             </div>
             <div class="form-group">
-                <label for="className">Name:</label>
-                <input data-ng-model="SpocModel.className" type="text" class="form-control" id="className" required/>
+                <label for="cssSelectorAtribute">CssSelector</label>
+                <input data-ng-model="SpocModel.cssSelectorAtribute" data-sel-id="cssSelectorAtribute" type="text" class="form-control" required>
             </div>
             <button type="submit" class="btn btn-default">Generate</button>
         </form>
 
         <div ng-show="isGenerated">
             <label for="generatedCode">Generated Code:</label>
-            <textarea class="form-control" rows="20" id="generatedCode">{{generatedCode}}</textarea><br />
+            <textarea class="form-control" rows="20" id="generatedCode">{{SpocModel.generatedCode}}</textarea><br />
             <button data-ng-click="reset()" class="btn btn-default">Reset</button>
+            <button data-ng-click="back()" class="btn btn-default">Back</button>
         </div>
     </div>
-    
+
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>

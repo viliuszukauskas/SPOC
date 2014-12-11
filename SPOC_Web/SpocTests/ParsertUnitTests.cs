@@ -13,13 +13,12 @@ namespace SpocTests
     {
         public PageObjectsParser Parser = new PageObjectsParser();
         public Generator Generator = new Generator();
-        public SpocXmlReader xml;
 
         [TestMethod]
         public void TestParser()
         {
             var pathToFile = Path.GetFullPath(@"Data/TestData.txt");
-            Parser.CollectElementInPage(pathToFile);
+            Parser.CollectElementInPage(pathToFile,"data-sel-id");
         }
 
         [TestMethod]

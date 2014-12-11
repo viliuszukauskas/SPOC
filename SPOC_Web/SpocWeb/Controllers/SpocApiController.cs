@@ -21,14 +21,11 @@ namespace SpocWeb.Controllers
         // POST: api/SpocApi
         public SpocModel Post(SpocModel spocModel)
         {
-            List<PageObjectsModel> objectsModel = new List<PageObjectsModel>();
-
-            Generator gen = new Generator();
-
+            Generator generator = new Generator();
             PageObjectsParser parser = new PageObjectsParser();
 
-            objectsModel = parser.CollectElementInPage(spocModel.srcCode);
-            spocModel.generatedCode = gen.GeneratePageObjectFile(objectsModel);
+            var objectsModel = parser.CollectElementInPage(spocModel.srcCode, spocModel.cssSelectorAtribute);
+            spocModel.generatedCode = generator.GeneratePageObjectFile(objectsModel);
 
             return spocModel;
         }
