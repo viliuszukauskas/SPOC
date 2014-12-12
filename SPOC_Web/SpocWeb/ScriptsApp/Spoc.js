@@ -11,7 +11,7 @@ SpocApp.controller('SpocCtrl', function ($scope, $http) {
         $http.post('/api/SpocApi', $scope.SpocModel)
             .success(function (SpocModel) {
                 $scope.SpocModel = SpocModel;
-            }).error(function (SpocModel) {
+            }).error(function () {
                 $scope.returnMessage = "An Error has occured posting list";
             });
         $scope.isGenerated = true;

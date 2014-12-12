@@ -5,16 +5,16 @@
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css">
     @Styles.Render("~/Content/css")
 </head>
-<body>
+<body style="background-color: papayawhip">
     <div data-ng-app="SpocApp" data-ng-controller="SpocCtrl" class="container mainContent">
         <form ng-hide="isGenerated" data-ng-submit="generate(SpocModel.$valid)">
             <div class="form-group">
                 <label for="sourceCode">SourceCode:</label>
-                <textarea data-ng-model="SpocModel.srcCode" class="form-control" rows="10" id="sourceCode" required></textarea>
+                <textarea data-ng-model="SpocModel.srcCode" placeholder="Enter html source code" class="form-control" rows="10" id="sourceCode" required></textarea>
             </div>
             <div class="form-group">
                 <label for="cssSelectorAtribute">CssSelector</label>
-                <input data-ng-model="SpocModel.cssSelectorAtribute" data-sel-id="cssSelectorAtribute" type="text" class="form-control" required>
+                <input data-ng-model="SpocModel.cssSelectorAtribute" placeholder="Enter attribute name" data-sel-id="cssSelectorAtribute" type="text" class="form-control" id="cssSelectorAtribute" required>
             </div>
             <button type="submit" class="btn btn-default">Generate</button>
         </form>
@@ -22,8 +22,8 @@
         <div ng-show="isGenerated">
             <label for="generatedCode">Generated Code:</label>
             <textarea class="form-control" rows="20" id="generatedCode">{{SpocModel.generatedCode}}</textarea><br />
-            <button data-ng-click="reset()" class="btn btn-default">Reset</button>
-            <button data-ng-click="back()" class="btn btn-default">Back</button>
+            <button data-ng-click="reset()" class="btn btn-default" style="background-color: lightcoral;">Reset</button>
+            <button data-ng-click="back()" class="btn btn-default"style="background-color: lightskyblue;">Back</button>
         </div>
     </div>
 

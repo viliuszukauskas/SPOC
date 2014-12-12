@@ -3,30 +3,27 @@ using SpocWeb.Enums;
 using SpocWeb.Models;
 using HtmlAgilityPack;
 
-using System.IO;
-using System;
-
 namespace SpocWeb.Parser
 {
     public class PageObjectsParser
     {
-        public List<PageObjectsModel> CollectElementInPage(string console,string selectorAttribute)
+        public List<PageObjectsModel> CollectElementInPage(string console, string selectorAttribute)
         {
             var modelList = new List<PageObjectsModel>();
 
-            HtmlDocument doc = new HtmlDocument();
+            var doc = new HtmlDocument();
             doc.LoadHtml(console);
-            foreach (HtmlNode node in doc.DocumentNode.SelectNodes(string.Format("//*[@id or @{0}]",selectorAttribute)))
+            foreach (HtmlNode node in doc.DocumentNode.SelectNodes(string.Format("//*[@id or @{0}]", selectorAttribute)))
             {
-                var model = new PageObjectsModel()
+                var model = new PageObjectsModel
                 {
                     TagName = node.Name,
-                    Atributes = new List<AttributesModel>() { },
+                    Atributes = new List<AttributesModel>(),
                 };
 
                 foreach (var attribute in node.Attributes)
                 {
-                    var atr = new AttributesModel()
+                    var atr = new AttributesModel
                     {
                         Name = attribute.Name,
                         Value = attribute.Value,
