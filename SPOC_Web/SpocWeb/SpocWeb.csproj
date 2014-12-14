@@ -176,7 +176,11 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SpocApiController.cs" />
     <Compile Include="Enums\SelectorType.cs" />
+    <Compile Include="Generate\Elements\CheckboxElement.cs" />
+    <Compile Include="Generate\Elements\BaseElement.cs" />
+    <Compile Include="Generate\Elements\TextInputElement.cs" />
     <Compile Include="Generate\Generator.cs" />
+    <Compile Include="Generate\Utils.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
