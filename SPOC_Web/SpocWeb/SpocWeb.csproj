@@ -177,6 +177,7 @@
     <Compile Include="Controllers\SpocApiController.cs" />
     <Compile Include="Enums\HtmlElementsEnum.cs" />
     <Compile Include="Enums\SelectorType.cs" />
+    <Compile Include="Generate\Elements\ButtonElement.cs" />
     <Compile Include="Generate\Elements\CheckboxElement.cs" />
     <Compile Include="Generate\Elements\BaseElement.cs" />
     <Compile Include="Generate\Elements\TextInputElement.cs" />
